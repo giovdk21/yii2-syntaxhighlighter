@@ -7,8 +7,6 @@ use yii;
 
 class SyntaxHighlighterAsset extends AssetBundle
 {
-//    public $basePath = '@webroot';
-//    public $baseUrl = '@web';
     public $sourcePath = '@yii2SyntaxHighlighter/assets';
 
     public static $extraCss = [];
@@ -24,7 +22,8 @@ class SyntaxHighlighterAsset extends AssetBundle
         'yii\web\YiiAsset',
     ];
 
-    public function init(){
+    public function init()
+    {
 
         Yii::setAlias('@yii2SyntaxHighlighter', __DIR__);
 
