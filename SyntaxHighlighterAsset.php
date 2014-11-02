@@ -11,12 +11,10 @@ class SyntaxHighlighterAsset extends AssetBundle
 //    public $baseUrl = '@web';
     public $sourcePath = '@yii2SyntaxHighlighter/assets';
 
+    public static $extraCss = [];
     public static $extraJs = [];
 
-    public $css = [
-        'styles/shCore.css',
-        'styles/shThemeDefault.css',
-    ];
+    public $css = [];
 
     public $js = [
         'scripts/shCore.js',
@@ -29,6 +27,10 @@ class SyntaxHighlighterAsset extends AssetBundle
     public function init(){
 
         Yii::setAlias('@yii2SyntaxHighlighter', __DIR__);
+
+        foreach (static::$extraCss as $css) {
+            $this->css[] = $css;
+        }
 
         foreach (static::$extraJs as $js) {
             $this->js[] = $js;

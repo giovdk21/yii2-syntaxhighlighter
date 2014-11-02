@@ -18,6 +18,7 @@ use yii\base\Widget as Widget;
 
 class SyntaxHighlighter extends Widget
 {
+    public $theme = 'default';
 
 	public $brushes = [];
 	public $brushAliases = [
@@ -51,6 +52,8 @@ class SyntaxHighlighter extends Widget
 	 * Run the widget
 	 */
 	public function run() {
+
+        SyntaxHighlighterAsset::$extraCss[] = 'styles/shCore' . ucfirst($this->theme) . '.css';
 
 		foreach ($this->brushes as $brushName) {
 			$brushFile = (!empty($this->brushAliases[$brushName]) ? $this->brushAliases[$brushName] : ucfirst($brushName));
